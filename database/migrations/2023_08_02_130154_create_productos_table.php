@@ -12,7 +12,10 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->text('descripcion')->nullable();
-            $table->string('codigo');
+            $table->text('modelo')->nullable();
+            $table->text('numero_serie')->nullable();
+            $table->float('cantidad')->nullable();
+            $table->text('novedad')->nullable();
             $table->timestamps();
         });
     }

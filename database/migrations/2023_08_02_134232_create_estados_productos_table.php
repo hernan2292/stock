@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedInteger('estado_id');
             $table->unsignedInteger('producto_id');
             $table->unsignedInteger('user_id');
-
             $table->timestamps();
         });
     }

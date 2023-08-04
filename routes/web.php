@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DependenciaController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\InventarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +17,16 @@ use App\Http\Controllers\AuthController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/login', [AuthController::class, 'login']);
-Route::post('/login', [AuthController::class, 'loginPost']);
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::resource('usuarios', UserController::class);
+
+Route::resource('dependencias', DependenciaController::class);
+
+Route::resource('inventarios', InventarioController::class);
 
 Route::get('/', function () {
     return view('welcome');
