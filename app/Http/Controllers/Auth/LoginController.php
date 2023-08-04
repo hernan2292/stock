@@ -33,7 +33,6 @@ class LoginController extends Controller
     // Personalizar el mensaje de error al autenticar
     protected function sendFailedLoginResponse(Request $request)
     {
-        dd($request->all());
         return redirect()->route('login')
             ->withInput($request->only($this->username(), 'remember'))
             ->withErrors([

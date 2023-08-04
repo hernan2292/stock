@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('descripcion')->nullable();
-            $table->unsignedBigInteger('dependencia_id')->nullable();
-            $table->foreign('dependencia_id')->references('id')->on('dependencias');
+            $table->string('codigo')->unique();
             $table->timestamps();
         });
     }

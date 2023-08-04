@@ -8,6 +8,7 @@ class Permiso extends Model
     protected $fillable = [
         'nombre',
         'descripcion',
+        'codigo',
         'dependencia_id',
     ];
 

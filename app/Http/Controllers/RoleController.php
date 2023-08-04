@@ -6,26 +6,26 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Dependencia;
 use App\Models\Role;
+use App\Models\Permiso;
 
-class UserController extends Controller
+class RoleController extends Controller
 {
     // Mostrar la página de inicio
     public function index()
     {
-        $usuarios = User::all();
-        $dependencias = Dependencia::all();
+        $roles = Role::all();
+        $permisos = Permiso::all();
 
-        return view('usuarios.index', compact('usuarios', 'dependencias'));
+        return view('roles.index', compact('permisos', 'roles'));
     }
 
     // Mostrar el formulario para crear una nueva usuario
     public function create()
     {
-        $usuarios = User::all();
         $roles = Role::all();
-        $dependencias = Dependencia::all();
+        $permisos = Permiso::all();
 
-        return view('usuarios.create', compact('usuarios', 'dependencias', 'roles'));
+        return view('roles.create', compact('permisos', 'roles'));
     }
 
     // Guardar la nueva usuario

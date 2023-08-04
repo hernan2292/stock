@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DependenciaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InventarioController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,8 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::resource('usuarios', UserController::class);
-
+Route::resource('users', UserController::class);
+Route::resource('roles', RoleController::class);
 Route::resource('dependencias', DependenciaController::class);
-
 Route::resource('inventarios', InventarioController::class);
 
-Route::get('/', function () {
-    return view('welcome');
-});

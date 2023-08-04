@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Dependencia;
+use App\Models\Role;
 
 class User extends Authenticatable
 {
@@ -42,4 +44,30 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function dependencia()
+    {
+        return $this->belongsTo(Dependencia::class, 'usuarios_dependencia', 'usuario_id', 'dependencia_id');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id');
+    }
+
+    public function hasRoles(array $roles)
+    {
+        return $this->roles->pluck('nombre')->intersect($roles)->count();
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasRoles(['admin']);
+    }
+
+    public function isUser()
+    {
+        return $this->hasRoles(['user']);
+    }
+
 }

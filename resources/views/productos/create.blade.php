@@ -6,10 +6,10 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Crear Nueva Dependencia</h3>
+                        <h3>Crear Nuevo Equipo</h3>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('dependencias.store') }}" method="POST">
+                        <form action="{{ route('inventarios.store') }}" method="POST">
                             @csrf
 
                             <div class="form-group">
@@ -18,22 +18,36 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="modelo">Modelo:</label>
+                                <input type="text" name="modelo" id="modelo" class="form-control"  required >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="modelo">Modelo:</label>
+                                <input type="text" name="modelo" id="modelo" class="form-control"  required >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="numero_serie">Numero de Serie:</label>
+                                <input type="text" name="numero_serie" id="numero_serie" class="form-control"  required >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad:</label>
+                                <input type="number" name="cantidad" id="cantidad" class="form-control"  required >
+                            </div>
+
+                            <div class="form-group">
                                 <label for="descripcion">Descripción:</label>
                                 <textarea name="descripcion" id="descripcion" class="form-control" rows="4" required></textarea>
                             </div>
 
-                            <!-- Si hay una relación de dependencia, agrega un campo select para seleccionar la dependencia padre -->
-                            <!-- <div class="form-group">
-                                <label for="dependencia_id">Dependencia Padre:</label>
-                                <select name="dependencia_id" id="dependencia_id" class="form-control">
-                                    <option value="">Seleccione una dependencia padre (opcional)</option>
-                                    @foreach ($dependencias as $dependencia)
-                                    <option value="{{ $dependencia->id }}">{{ $dependencia->nombre }}</option>
-                                    @endforeach
-                                </select>
-                            </div> -->
+                            <div class="form-group">
+                                <label for="novedad">Novedad:</label>
+                                <textarea name="novedad" id="novedad" class="form-control" rows="4" required></textarea>
+                            </div>
 
-                            <button type="submit" class="btn btn-primary">Crear dependencia</button>
+                            <button type="submit" class="btn btn-primary">Crear Equipo</button>
                         </form>
                     </div>
                 </div>
